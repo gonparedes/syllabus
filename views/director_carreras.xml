@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+<!--Carreras-->
+        <!--Form view Carreras-->
+        <record id="syllabus_director_carrera_form_view" model="ir.ui.view">
+            <field name="name">director_carrera_form</field>
+            <field name="model">syllabus.carrera</field>
+            <field name="arch" type="xml">
+                <form string="Form Carrera Director" create="0" edit="0" delete="0">
+                    <sheet>
+                        <group>
+                            <field name="codigo" readonly="1" string="Codigo Carrera"/>
+                            <field name="creditos"  readonly="1" string="Creditos Totales"/>
+                            <field name="nombre" readonly="1" string="Carrera"/>
+                            <field name="facultad" readonly="1" string="Facultad"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view Carreras-->
+        <record id="syllabus_director_carrera_tree_view" model="ir.ui.view">
+            <field name="name">director_carrera_tree</field>
+            <field name="model">syllabus.carrera</field>
+            <field name="arch" type="xml">
+                <tree string="Tree Carrera Director" create="0" edit="0" delete="0">
+                    <field name="codigo" string="Codigo Carrera"/>
+                    <field name="nombre" string="Carrera"/>
+                    <field name="creditos" string="Total de Créditos"/>
+                    <field name="facultad" string="Facultad"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Ver Carreras-->
+        <record id="syllabus_director_ver_carreras_action_window" model="ir.actions.act_window">
+            <field name="name">Carreras</field>
+            <field name="res_model">syllabus.carrera</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!--Action Tree Carreras-->
+        <record id="action_syllabus_director_carrera_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="act_window_id" ref="syllabus_director_ver_carreras_action_window"/>
+            <field name="view_id" ref="syllabus_director_carrera_tree_view"/>
+        </record>
+        <!--Action Form Carreras-->
+        <record id="action_syllabus_director_carrera_form" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="act_window_id" ref="syllabus_director_ver_carreras_action_window"/>
+            <field name="view_id" ref="syllabus_director_carrera_form_view"/>
+        </record>
+
+        <!--Parent-->
+        <menuitem id="syllabus_director_carreras" name="Carreras" parent="syllabus.menu_director_escuela"
+                  action="syllabus_director_ver_carreras_action_window"
+                  groups="base.group_system,syllabus.group_director_escuela"/>
+
+
+        <!--Action Carreras-->
+        <menuitem id="syllabus_director_ver_carreras_m" name="Ver Carreras" parent="syllabus_director_carreras"
+                  action="syllabus_director_ver_carreras_action_window"
+                  groups="base.group_system,syllabus.group_director_escuela"/>
+
+<!--Asesor-->
+        <!--Form view Asesor-->
+        <record id="syllabus_director_asesor_form_view" model="ir.ui.view">
+            <field name="name">director_asesor_form</field>
+            <field name="model">syllabus.carrera</field>
+            <field name="arch" type="xml">
+                <form string="Form Asesor Director" create="0" edit="1" delete="0">
+                    <sheet>
+                        <group>
+                            <field name="nombre" readonly="1" string="Carrera"/>
+                            <field name="asesor" string="Asesor"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view Asesor-->
+        <record id="syllabus_director_asesor_tree_view" model="ir.ui.view">
+            <field name="name">director_asesor_tree</field>
+            <field name="model">syllabus.carrera</field>
+            <field name="arch" type="xml">
+                <tree string="Tree Asesor Director" create="0" edit="0" delete="0">
+                    <field name="nombre" readonly="1" string="Carrera"/>
+                    <field name="asesor" string="Asesor"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Asignar Asesor-->
+        <record id="syllabus_director_asignar_asesor_action_window" model="ir.actions.act_window">
+            <field name="name">Asignar Asesor</field>
+            <field name="res_model">syllabus.carrera</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Action Tree Asesor-->
+        <record id="action_syllabus_director_asesor_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="act_window_id" ref="syllabus_director_asignar_asesor_action_window"/>
+            <field name="view_id" ref="syllabus_director_asesor_tree_view"/>
+        </record>
+        <!--Action Form Asesor-->
+        <record id="action_syllabus_director_asesor_form" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="act_window_id" ref="syllabus_director_asignar_asesor_action_window"/>
+            <field name="view_id" ref="syllabus_director_asesor_form_view"/>
+        </record>
+
+        <!--Action Asignar Asesor-->
+        <menuitem id="syllabus_director_asignar_asesor_m" name="Asignar Asesor" parent="syllabus_director_carreras"
+                  action="syllabus_director_asignar_asesor_action_window"
+                  groups="base.group_system,syllabus.group_director_escuela"/>
+
+<!--Comite-->
+         <!--Form view Comite-->
+        <record id="syllabus_director_comite_form_view" model="ir.ui.view">
+            <field name="name">director_comite_form</field>
+            <field name="model">syllabus.carrera</field>
+            <field name="arch" type="xml">
+                <form string="Form Comite Director" create="0" edit="1" delete="0">
+                    <sheet>
+                        <group>
+                            <field name="nombre" readonly="1" string="Carrera"/>
+                            <field name="comite" string="Comite"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view Comite-->
+        <record id="syllabus_director_comite_tree_view" model="ir.ui.view">
+            <field name="name">director_comite_tree</field>
+            <field name="model">syllabus.carrera</field>
+            <field name="arch" type="xml">
+                <tree string="Tree Comite Director" create="0" edit="0" delete="0">
+                    <field name="nombre" readonly="1" string="Carrera"/>
+                    <field name="comite" string="Comite"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Asignar Miembro del Comite-->
+        <record id="syllabus_director_asignar_comite_action_window" model="ir.actions.act_window">
+            <field name="name">Asignar Miembro del Comité</field>
+            <field name="res_model">syllabus.carrera</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Action Tree Comite-->
+        <record id="action_syllabus_director_comite_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="act_window_id" ref="syllabus_director_asignar_comite_action_window"/>
+            <field name="view_id" ref="syllabus_director_comite_tree_view"/>
+        </record>
+        <!--Action Form Comite-->
+        <record id="action_syllabus_director_comite_form" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="act_window_id" ref="syllabus_director_asignar_comite_action_window"/>
+            <field name="view_id" ref="syllabus_director_comite_form_view"/>
+        </record>
+
+        <!--Action Asignar Miembro del Comite-->
+        <menuitem id="syllabus_director_asignar_comite_m" name="Asignar Comité" parent="syllabus_director_carreras"
+                  action="syllabus_director_asignar_comite_action_window"
+                  groups="base.group_system,syllabus.group_director_escuela"/>
+
+
+    </data>
+</odoo>

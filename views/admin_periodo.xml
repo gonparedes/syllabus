@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+<!--Periodo-->
+        <!--Form view Periodo-->
+        <record id="syllabus_admin_periodo_form_view" model="ir.ui.view">
+            <field name="name">admin_periodo_form</field>
+            <field name="model">syllabus.periodo</field>
+            <field name="arch" type="xml">
+                <form string="Form Periodo Admin">
+                    <sheet>
+                        <group>
+                            <field name="anio" string="Año"/>
+                            <field name="semestre" string="Semestre"/>
+                            <field name="inicio" string="Fecha Inicio"/>
+                            <field name="termino" string="Fecha Término"/>
+                            <field name="estado" string="Estado"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view Periodo-->
+        <record id="syllabus_admin_periodo_tree_view" model="ir.ui.view">
+            <field name="name">admin_periodo_tree</field>
+            <field name="model">syllabus.periodo</field>
+            <field name="arch" type="xml">
+                <tree string="Tree Periodo Admin">
+                    <field name="anio" string="Año"/>
+                    <field name="semestre" string="Semestre"/>
+                    <field name="estado" string="Estado"/>
+                    <field name="inicio" string="Fecha Inicio"/>
+                    <field name="termino" string="Fecha Término"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Ver Periodo-->
+        <record id="syllabus_admin_ver_periodo_action_window" model="ir.actions.act_window">
+            <field name="name">Lista de Periodo</field>
+            <field name="res_model">syllabus.periodo</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!--Action Tree Periodo-->
+        <record id="action_syllabus_admin_periodo_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="act_window_id" ref="syllabus_admin_ver_periodo_action_window"/>
+            <field name="view_id" ref="syllabus_admin_periodo_tree_view"/>
+        </record>
+        <!--Action Form Periodo-->
+        <record id="action_syllabus_admin_periodo_form" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="act_window_id" ref="syllabus_admin_ver_periodo_action_window"/>
+            <field name="view_id" ref="syllabus_admin_periodo_form_view"/>
+        </record>
+
+        <!--Parent-->
+        <menuitem id="syllabus_admin_periodo" name="Periodo" parent="syllabus.menu_administrador"
+                  action="syllabus_admin_ver_periodo_action_window"
+                  groups="base.group_system,syllabus.group_admin"/>
+
+        <!--Action Periodo-->
+        <menuitem id="syllabus_admin_ver_periodo_m" name="Ver Periodo" parent="syllabus_admin_periodo"
+                  action="syllabus_admin_ver_periodo_action_window"
+                  groups="base.group_system,syllabus.group_admin"/>
+    </data>
+</odoo>

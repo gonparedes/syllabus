@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+<!--Syllabus-->
+        <!--Form view Syllabus-->
+        <record id="syllabus_comite_syllabus_form_view" model="ir.ui.view">
+            <field name="name">comite_syllabus_form</field>
+            <field name="model">syllabus.instancia.curso</field>
+            <field name="arch" type="xml">
+                <form string="Form Syllabus" create="0" edit="1" delete="0">
+                    <sheet>
+                        <group>
+                            <field name="nombre" readonly="1" string="Curso"/>
+                            <field name="carrera" readonly="1" string="Carrera"/>
+                            <field name="syllabus" readonly="1" string="Syllabus"/>
+                            <field name="estado_syllabus" readonly="1" string="Estado"/>
+                            <field name="observacion_syllabus" string="Observación"/>
+                            <button name="rechazo_comite" type="object" icon="fa-times"
+                                string="Rechazar" class="oe_highlight"
+                                    style="border-color:  rgb(247, 86, 86);background-color: rgb(247, 86, 86);"/>
+                            <button name="aprobacion_comite" type="object" icon="fa-check"
+                                    string="Aprobar" class="oe_highlight"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view Syllabus-->
+        <record id="syllabus_comite_syllabus_tree_view" model="ir.ui.view">
+            <field name="name">comite_syllabus_tree</field>
+            <field name="model">syllabus.instancia.curso</field>
+            <field name="arch" type="xml">
+                <tree string="Tree Syllabus" create="0" edit="0" delete="0">
+                    <field name="nombre" string="Nombre del Curso"/>
+                    <field name="carrera" string="Carrera"/>
+                    <field name="estado_syllabus" string="Estado del Syllabus"/>
+                    <!--<field name="pertenencia" string="Comite"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <!--Ver Syllabus-->
+        <record id="syllabus_comite_ver_syllabus_action_window" model="ir.actions.act_window">
+            <field name="name">Syllabus</field>
+            <field name="res_model">syllabus.instancia.curso</field>
+            <field name="view_mode">tree,form</field>
+            <!--<field name="domain">[('pertenencia','=',uid)]</field>-->
+        </record>
+
+        <!--Action Tree Syllabus-->
+        <record id="action_syllabus_comite_syllabus_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="act_window_id" ref="syllabus_comite_ver_syllabus_action_window"/>
+            <field name="view_id" ref="syllabus_comite_syllabus_tree_view"/>
+        </record>
+        <!--Action Form Syllabus-->
+        <record id="action_syllabus_comite_syllabus_form" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="act_window_id" ref="syllabus_comite_ver_syllabus_action_window"/>
+            <field name="view_id" ref="syllabus_comite_syllabus_form_view"/>
+        </record>
+
+        <!--Parent-->
+        <menuitem id="syllabus_comite_syllabus" name="Syllabus" parent="syllabus.menu_comite"
+                  action="syllabus_comite_ver_syllabus_action_window"
+                  groups="base.group_system,syllabus.group_comite"/>
+
+        <!--Action Syllabus-->
+        <menuitem id="syllabus_comite_ver_syllabus_m" name="Ver Syllabus" parent="syllabus_comite_syllabus"
+                  action="syllabus_comite_ver_syllabus_action_window"
+                  groups="base.group_system,syllabus.group_comite"/>
+    </data>
+  </odoo>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+<!--Evaluaciones-->
+        <!--Form view Evaluaciones-->
+        <record id="syllabus_asesor_evaluaciones_form_view" model="ir.ui.view">
+            <field name="name">asesor_evaluaciones_form</field>
+            <field name="model">syllabus.evaluacion</field>
+            <field name="arch" type="xml">
+                <form string="Form Evaluaciones" create="0" edit="1" delete="0">
+                    <sheet>
+                        <group>
+                            <field name="curso" readonly="1" string="Curso"/>
+                            <field name="evaluacion" readonly="1" string="Evaluacion"/>
+                            <field name="porcentaje" readonly="1" string="Notas"/>
+                            <field name="fecha" readonly="1" string="Fecha"/>
+                            <field name="notas" readonly="1" string="Notas"/>
+                            <field name="pauta" readonly="1" string="Pauta"/>
+                            <field name="observacion" string="Observacion"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view Evaluaciones-->
+        <record id="syllabus_asesor_evaluaciones_tree_view" model="ir.ui.view">
+            <field name="name">asesor_evaluaciones_tree</field>
+            <field name="model">syllabus.evaluacion</field>
+            <field name="arch" type="xml">
+                <tree string="Tree Syllabus" create="0" edit="0" delete="0">
+                    <field name="curso" string="Nombre del Curso"/>
+                    <field name="porcentaje" string="Porcentaje"/>
+                    <field name="fecha" string="Fecha"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Ver Evaluaciones-->
+        <record id="syllabus_asesor_ver_evaluaciones_action_window" model="ir.actions.act_window">
+            <field name="name">Evaluaciones</field>
+            <field name="res_model">syllabus.evaluacion</field>
+            <field name="view_mode">tree,form</field>
+            <!--<field name="domain">[('pertenencia','=',uid)]</field>-->
+        </record>
+
+        <!--Action Tree Evaluaciones-->
+        <record id="action_syllabus_asesor_evaluacion_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="act_window_id" ref="syllabus_asesor_ver_evaluaciones_action_window"/>
+            <field name="view_id" ref="syllabus_asesor_evaluaciones_tree_view"/>
+        </record>
+        <!--Action Form Evaluaciones-->
+        <record id="action_syllabus_asesor_evaluacion_form" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="act_window_id" ref="syllabus_asesor_ver_evaluaciones_action_window"/>
+            <field name="view_id" ref="syllabus_asesor_evaluaciones_form_view"/>
+        </record>
+
+        <!--Parent-->
+        <menuitem id="syllabus_asesor_evaluaciones" name="Evaluaciones" parent="syllabus.menu_asesor"
+                  action="syllabus_asesor_ver_evaluaciones_action_window"
+                  groups="base.group_system,syllabus.group_asesor"/>
+
+        <!--Action Evaluaciones-->
+        <menuitem id="syllabus_asesor_ver_evaluaciones_m" name="Ver Evaluaciones" parent="syllabus_comite_syllabus"
+                  action="syllabus_asesor_ver_evaluaciones_action_window"
+                  groups="base.group_system,syllabus.group_asesor"/>
+    </data>
+  </odoo>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <!--Form view Facultad-->
+    <record id="syllabus_admin_facultad_form_view" model="ir.ui.view">
+        <field name="name">admin_facultad_form</field>
+        <field name="model">syllabus.facultad</field>
+        <field name="arch" type="xml">
+            <form string="Form Facultades Admin">
+                <sheet>
+                    <group>
+                        <field name="nombre" string="Nombre"/>
+                        <field name="descripcion" string="Descripcion"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Tree view Facultad-->
+    <record id="syllabus_admin_facultad_tree_view" model="ir.ui.view">
+        <field name="name">admin_facultad_tree</field>
+        <field name="model">syllabus.facultad</field>
+        <field name="arch" type="xml">
+            <tree string="Tree Facultades Admin">
+                <field name="nombre" string="Nombre"/>
+                <field name="descripcion" string="Descripcion"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Action Facultad-->
+    <record id="action_syllabus_admin_facultad" model="ir.actions.act_window">
+        <field name="name">Facultades</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">syllabus.facultad</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Facultades" id="syllabus.syllabus_admin_muesta_facultades" parent="syllabus.menu_administrador"
+        action="action_syllabus_admin_facultad"
+        groups="base.group_system,syllabus.group_admin"/>
+</odoo>

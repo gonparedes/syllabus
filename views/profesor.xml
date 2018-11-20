@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+<!--Syllabus-->
+        <!--Form view Syllabus-->
+        <record id="syllabus_profe_syllabus_form_view" model="ir.ui.view">
+            <field name="name">profe_syllabus_form</field>
+            <field name="model">syllabus.instancia.curso</field>
+            <field name="arch" type="xml">
+                <form string="Form Syllabus" create="0" edit="1" delete="0">
+                    <sheet>
+                        <group>
+                            <field name="nombre" readonly="1" string="Curso"/>
+                            <field name="carrera" readonly="1" string="Carera"/>
+                            <field name="syllabus" required="1" string="Syllabus" attrs="{'readonly':[('estado_syllabus', '!=', 'nuevo')]}"/>
+                            <field name="estado_syllabus" readonly="1" string="Estado del Syllabus"/>
+                            <field name="profesor" readonly="1" string="Docente"/>
+                            <field name="observacion_syllabus" readonly="1" string="Observación"/>
+                            <button name="profesor_syllabus" type="object" icon="fa-check"
+                                string="Confirmación" class="oe_highlight"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view Syllabus-->
+        <record id="syllabus_profe_syllabus_tree_view" model="ir.ui.view">
+            <field name="name">profe_syllabus_tree</field>
+            <field name="model">syllabus.instancia.curso</field>
+            <field name="arch" type="xml">
+                <tree string="Tree Syllabus" create="0" edit="0" delete="0">
+                    <field name="nombre" string="Nombre del Curso"/>
+                    <field name="carrera" readonly="1" string="Carera"/>
+                    <field name="estado_syllabus" string="Estado del Syllabus"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Ver Syllabus-->
+        <record id="syllabus_profesor_ver_syllabus_action_window" model="ir.actions.act_window">
+            <field name="name">Syllabus</field>
+            <field name="res_model">syllabus.instancia.curso</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('profesor','=',uid)]</field>
+        </record>
+
+        <!--Action Tree Syllabus-->
+        <record id="action_syllabus_profe_syllabus_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="act_window_id" ref="syllabus_profesor_ver_syllabus_action_window"/>
+            <field name="view_id" ref="syllabus_profe_syllabus_tree_view"/>
+        </record>
+        <!--Action Form Syllabus-->
+        <record id="action_syllabus_profe_syllabus_form" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="act_window_id" ref="syllabus_profesor_ver_syllabus_action_window"/>
+            <field name="view_id" ref="syllabus_profe_syllabus_form_view"/>
+        </record>
+
+        <!--Parent-->
+        <menuitem id="syllabus_profesor_syllabus" name="Syllabus" parent="syllabus.menu_profesor"
+                  action="syllabus_profesor_ver_syllabus_action_window"
+                  groups="base.group_system,syllabus.group_profesor"/>
+
+        <!--Action Syllabus-->
+        <menuitem id="syllabus_profesor_ver_syllabus_m" name="Ver Syllabus" parent="syllabus_profesor_syllabus"
+                  action="syllabus_profesor_ver_syllabus_action_window"
+                  groups="base.group_system,syllabus.group_profesor"/>
+
+<!--Curso-->
+        <!--Form view Curso-->
+        <record id="syllabus_profe_curso_form_view" model="ir.ui.view">
+            <field name="name">profe_curso_form</field>
+            <field name="model">syllabus.instancia.curso</field>
+            <field name="arch" type="xml">
+                <form string="Form Curso" create="0" edit="0" delete="0">
+                    <sheet>
+                        <group>
+                            <field name="nombre" string="Nombre"/>
+                            <field name="carrera" string="Carrera"/>
+                            <field name="semestre" string="Semestre"/>
+                            <field name="Seccion" string="Seccion"/>
+                            <field name="anio" string="Año"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view Curso-->
+        <record id="syllabus_profe_curso_tree_view" model="ir.ui.view">
+            <field name="name">profe_curso_tree</field>
+            <field name="model">syllabus.instancia.curso</field>
+            <field name="arch" type="xml">
+                <tree string="Tree Curso" create="0" edit="0" delete="0">
+                    <field name="nombre" string="Curso"/>
+                    <field name="semestre" string="Semestre"/>
+                    <field name="Seccion" string="Seccion"/>
+                    <field name="anio" string="Año"/>
+                    <field name="carrera" string="Carrera"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Ver Cursos-->
+        <record id="syllabus_profesor_ver_cursos_action_window" model="ir.actions.act_window">
+            <field name="name">Cursos</field>
+            <field name="res_model">syllabus.instancia.curso</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('profesor', '=', uid)]</field>
+        </record>
+
+        <!--Action Tree Cursos-->
+        <record id="action_syllabus_profe_curso_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="act_window_id" ref="syllabus_profesor_ver_cursos_action_window"/>
+            <field name="view_id" ref="syllabus_profe_curso_tree_view"/>
+        </record>
+        <!--Action Form Cursos-->
+        <record id="action_syllabus_profe_curso_form" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="act_window_id" ref="syllabus_profesor_ver_cursos_action_window"/>
+            <field name="view_id" ref="syllabus_profe_curso_form_view"/>
+        </record>
+
+        <!--Action Cursos-->
+        <menuitem id="syllabus_profesor_ver_cursos_m" name="Cursos" parent="syllabus_profesor_syllabus"
+                  action="syllabus_profesor_ver_cursos_action_window"
+                  groups="base.group_system,syllabus.group_profesor"/>
+
+<!--Evaluaciones-->
+        <!--Form view Evaluaciones-->
+        <record id="syllabus_profe_evaluacion_form_view" model="ir.ui.view">
+            <field name="name">profe_evaluacion_form</field>
+            <field name="model">syllabus.evaluacion</field>
+            <field name="arch" type="xml">
+                <form string="Form Evaluacion">
+                    <sheet>
+                        <group>
+                            <field name="curso" string="Curso"/>
+                            <field name="evaluacion" string="Evaluación"/>
+                            <!--<field name="fecha" string="Fecha" options="{'datepicker':{'minDate': 0}}"/>-->
+                            <field name="fecha" string="Fecha"/>
+                            <field name="porcentaje" string="Ponderación"/>
+                            <field name="notas" string="Notas"/>
+                            <field name="pauta" string="Pauta"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view Evaluaciones-->
+        <record id="syllabus_profe_evaluacion_tree_view" model="ir.ui.view">
+            <field name="name">profe_evaluacion_tree</field>
+            <field name="model">syllabus.evaluacion</field>
+            <field name="arch" type="xml">
+                <tree string="Tree Evaluacion">
+                    <field name="curso" string="Curso"/>
+                    <field name="evaluacion" string="Evaluación"/>
+                    <field name="fecha" string="Fecha"/>
+                    <field name="porcentaje" string="Ponderación"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Ver Notas-->
+        <record id="syllabus_profesor_notas_action_window" model="ir.actions.act_window">
+            <field name="name">Evaluacion</field>
+            <field name="res_model">syllabus.evaluacion</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--Action Tree Evaluaciones-->
+        <record id="action_syllabus_profe_evaluacion_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="act_window_id" ref="syllabus_profesor_notas_action_window"/>
+            <field name="view_id" ref="syllabus_profe_evaluacion_tree_view"/>
+        </record>
+        <!--Action Form Evaluaciones-->
+        <record id="action_syllabus_profe_evaluacion_form" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="act_window_id" ref="syllabus_profesor_notas_action_window"/>
+            <field name="view_id" ref="syllabus_profe_evaluacion_form_view"/>
+        </record>
+
+        <!--Action Notas-->
+        <menuitem id="syllabus_profesor_evaluaciones_m" name="Evaluaciones" parent="syllabus_profesor_syllabus"
+                  action="syllabus_profesor_notas_action_window"
+                  groups="base.group_system,syllabus.group_profesor"/>
+
+    </data>
+  </odoo>

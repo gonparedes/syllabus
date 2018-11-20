@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+<!--Syllabus-->
+        <!--Form view Syllabus-->
+        <record id="syllabus_director_syllabus_form_view" model="ir.ui.view">
+            <field name="name">director_syllabus_form</field>
+            <field name="model">syllabus.instancia.curso</field>
+            <field name="arch" type="xml">
+                <form string="Form Syllabus Director" create="0" edit="0" delete="0">
+                    <sheet>
+                        <group>
+                            <field name="nombre" readonly="1" string="Curso"/>
+                            <field name="carrera" readonly="1" string="Carrera"/>
+                            <field name="syllabus" readonly="1" string="Syllabus"/>
+                            <field name="estado_syllabus" readonly="1" string="Estado del Syllabus"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view Syllabus-->
+        <record id="syllabus_director_syllabus_tree_view" model="ir.ui.view">
+            <field name="name">director_syllabus_tree</field>
+            <field name="model">syllabus.instancia.curso</field>
+            <field name="arch" type="xml">
+                <tree string="Tree Syllabus Director" create="0" edit="0" delete="0">
+                    <field name="nombre" string="Nombre de Curso"/>
+                    <field name="carrera" string="Carrera"/>
+                    <field name="estado_syllabus" string="Estado del Syllabus"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Ver Syllabus-->
+        <record id="syllabus_director_ver_syllabus_action_window" model="ir.actions.act_window">
+            <field name="name">Syllabus</field>
+            <field name="res_model">syllabus.instancia.curso</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!--Action Tree Syllabus-->
+        <record id="action_syllabus_director_syllabus_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="act_window_id" ref="syllabus_director_ver_syllabus_action_window"/>
+            <field name="view_id" ref="syllabus_director_syllabus_tree_view"/>
+        </record>
+        <!--Action Form Syllabus-->
+        <record id="action_syllabus_director_syllabus_form" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="act_window_id" ref="syllabus_director_ver_syllabus_action_window"/>
+            <field name="view_id" ref="syllabus_director_syllabus_form_view"/>
+        </record>
+
+        <!--Parent-->
+        <menuitem id="syllabus_director_syllabuss" name="Syllabus" parent="syllabus.menu_director_escuela"
+                  action="syllabus_director_ver_syllabus_action_window"
+                  groups="base.group_system,syllabus.group_director_escuela"/>
+
+        <!--Action Syllabus-->
+        <menuitem id="syllabus_director_ver_syllabus_m" name="Ver Syllabus" parent="syllabus_director_syllabuss"
+                  action="syllabus_director_ver_syllabus_action_window"
+                  groups="base.group_system,syllabus.group_director_escuela"/>
+<!--Estrategia-->
+        <!--Form view Syllabus-->
+        <record id="syllabus_director_estrategias_form_view" model="ir.ui.view">
+            <field name="name">director_estrategias_form</field>
+            <field name="model">syllabus.estrategia</field>
+            <field name="arch" type="xml">
+                <form string="Form Estrategias Director">
+                    <sheet>
+                        <group>
+                            <field name="codigo" string="Codigo"/>
+                            <field name="nombre" string="Estrategia de Aprendizaje"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree view Syllabus-->
+        <record id="syllabus_director_estrategias_tree_view" model="ir.ui.view">
+            <field name="name">director_estrategias_tree</field>
+            <field name="model">syllabus.estrategia</field>
+            <field name="arch" type="xml">
+                <tree string="Tree Estrategias Director">
+                    <field name="codigo" string="Codigo"/>
+                    <field name="nombre" string="Estrategia de Aprendizaje"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Ver Estrategias-->
+        <record id="syllabus_director_ver_estrategias_action_window" model="ir.actions.act_window">
+            <field name="name">Estrategias de Aprendizaje</field>
+            <field name="res_model">syllabus.estrategia</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!--Action Tree Estrategias-->
+        <record id="action_syllabus_director_estretegia_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="act_window_id" ref="syllabus_director_ver_estrategias_action_window"/>
+            <field name="view_id" ref="syllabus_director_estrategias_tree_view"/>
+        </record>
+        <!--Action Form Estrategias-->
+        <record id="action_syllabus_director_estrategia_form" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="act_window_id" ref="syllabus_director_ver_estrategias_action_window"/>
+            <field name="view_id" ref="syllabus_director_estrategias_form_view"/>
+        </record>
+
+
+        <!--Action Estrategias-->
+        <menuitem id="syllabus_director_ver_estrategias_m" name="Estrategias" parent="syllabus_director_syllabuss"
+                  action="syllabus_director_ver_estrategias_action_window"
+                  groups="base.group_system,syllabus.group_director_escuela"/>
+    </data>
+</odoo>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <!--Form view-->
+    <record id="syllabus_admin_user_form_view" model="ir.ui.view">
+        <field name="name">usuarios_form</field>
+        <field name="model">res.users</field>
+        <field name="arch" type="xml">
+            <form string="Form Usuarios">
+                <sheet>
+                    <group>
+                        <field name="name" string="Nombre"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Tree view-->
+    <record id="syllabus_admin_user_tree_view" model="ir.ui.view">
+        <field name="name">usuarios_tree</field>
+        <field name="model">res.users</field>
+        <field name="arch" type="xml">
+            <tree string="Tree Usuarios">
+                <field name="display_name" string="Nombre"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Action User-->
+    <record id="action_syllabus_admin_user" model="ir.actions.act_window">
+        <field name="name">Usuarios</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.users</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--Action Tree Carreras-->
+    <record id="action_syllabus_admin_usuarios_tree" model="ir.actions.act_window.view">
+        <field name="view_mode">tree</field>
+        <field name="act_window_id" ref="action_syllabus_admin_user"/>
+        <field name="view_id" ref="syllabus_admin_user_tree_view"/>
+    </record>
+    <!--Action Form Carreras-->
+    <!--<record id="action_syllabus_admin_usuarios_form" model="ir.actions.act_window.view">
+        <field name="view_mode">form</field>
+        <field name="act_window_id" ref="action_syllabus_admin_user"/>
+        <field name="view_id" ref="syllabus_admin_user_form_view"/>
+    </record>
+    -->
+
+    <menuitem name="Usuarios" id="syllabus.syllabus_muesta_usuarios" parent="syllabus.menu_administrador"
+        action="action_syllabus_admin_user"
+        groups="base.group_system,syllabus.group_admin"/>
+</odoo>

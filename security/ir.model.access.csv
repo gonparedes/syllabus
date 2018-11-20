@@ -1,0 +1,43 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+periodo_admin,periodo admin,model_syllabus_periodo,syllabus.group_admin,1,1,1,1
+periodo_asesor,periodo asesor,model_syllabus_periodo,syllabus.group_asesor,0,0,0,0
+periodo_comite,periodo comite,model_syllabus_periodo,syllabus.group_comite,0,0,0,0
+periodo_director_escuela,periodo director de escuela,model_syllabus_periodo,syllabus.group_director_escuela,1,0,0,0
+periodo_profesor,periodo profesor,model_syllabus_periodo,syllabus.group_profesor,0,0,0,0
+
+facultad_admin,facultad admin,model_syllabus_facultad,syllabus.group_admin,1,1,1,1
+facultad_asesor,facultad asesor,model_syllabus_facultad,syllabus.group_asesor,1,0,0,0
+facultad_comite,facultad comite,model_syllabus_facultad,syllabus.group_comite,1,0,0,0
+facultad_director_escuela,facultad director de escuela,model_syllabus_facultad,syllabus.group_director_escuela,1,0,0,0
+facultad_profesor,facultad profesor,model_syllabus_facultad,syllabus.group_profesor,0,0,0,0
+
+carrera_admin,carrera admin,model_syllabus_carrera,syllabus.group_admin,1,1,1,1
+carrera_asesor,carrera asesor,model_syllabus_carrera,syllabus.group_asesor,0,0,0,0
+carrera_comite,carrera comite,model_syllabus_carrera,syllabus.group_comite,0,0,0,0
+carrera_director_escuela,carrera director de escuela,model_syllabus_carrera,syllabus.group_director_escuela,1,1,0,0
+carrera_profesor,carrera profesor,model_syllabus_carrera,syllabus.group_profesor,0,0,0,0
+
+curso_admin,curso admin,model_syllabus_curso,syllabus.group_admin,1,1,1,1
+curso_asesor,curso asesor,model_syllabus_curso,syllabus.group_asesor,0,0,0,0
+curso_comite,curso comite,model_syllabus_curso,syllabus.group_comite,1,1,0,0
+curso_director_escuela,curso director de escuela,model_syllabus_curso,syllabus.group_director_escuela,1,0,0,0
+curso_profesor,curso profesor,model_syllabus_curso,syllabus.group_profesor,1,0,0,0
+
+inst_curso_admin,instancia curso admin,model_syllabus_instancia_curso,syllabus.group_admin,1,1,1,1
+inst_curso_asesor,instancia curso asesor,model_syllabus_instancia_curso,syllabus.group_asesor,1,1,0,0
+inst_curso_comite,instancia curso comite,model_syllabus_instancia_curso,syllabus.group_comite,1,1,0,0
+inst_curso_director_escuela,instancia curso director de escuela,model_syllabus_instancia_curso,syllabus.group_director_escuela,1,1,1,0
+inst_curso_profesor,instancia curso profesor,model_syllabus_instancia_curso,syllabus.group_profesor,1,1,0,0
+
+evaluacion_admin,evaluacion admin,model_syllabus_evaluacion,syllabus.group_admin,1,1,1,1
+evaluacion_asesor,evaluacion asesor,model_syllabus_evaluacion,syllabus.group_asesor,1,1,0,0
+evaluacion_comite,evaluacion comite,model_syllabus_evaluacion,syllabus.group_comite,0,0,0,0
+evaluacion_director_escuela,evaluacion director de escuela,model_syllabus_evaluacion,syllabus.group_director_escuela,1,0,0,0
+evaluacion_profesor,evaluacion profesor,model_syllabus_evaluacion,syllabus.group_profesor,1,1,1,0
+
+estrategia_admin,estrategia admin,model_syllabus_estrategia,syllabus.group_admin,1,1,1,1
+estrategia_asesor,estrategia asesor,model_syllabus_estrategia,syllabus.group_asesor,0,0,0,0
+estrategia_comite,estrategia comite,model_syllabus_estrategia,syllabus.group_comite,0,0,0,0
+estrategia_director_escuela,estrategia director de escuela,model_syllabus_estrategia,syllabus.group_director_escuela,1,0,0,0
+estrategia_profesor,estrategia profesor,model_syllabus_estrategia,syllabus.group_profesor,0,0,0,0

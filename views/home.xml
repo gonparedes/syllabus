@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!--Tab-->
+        <menuitem name="Syllabus" id="syllabus.menu_syllabus_root"
+                  groups="base.group_system,syllabus.group_admin,syllabus.group_asesor,syllabus.group_comite,syllabus.group_director_escuela,syllabus.group_profesor"
+        />
+        <!--Sidebar-->
+        <!--Sidebar Administrador-->
+        <menuitem name="Administrador" id="syllabus.menu_administrador"
+                  parent="syllabus.menu_syllabus_root" sequence="2"
+                  groups="base.group_system,syllabus.group_admin"
+        />
+
+        <!--Sidebar Director de Escuela-->
+        <menuitem name="Director de Escuela" id="syllabus.menu_director_escuela"
+                  parent="syllabus.menu_syllabus_root" sequence="2"
+                  groups="base.group_system,syllabus.group_director_escuela"
+        />
+
+        <!--Sidebar Comite-->
+        <menuitem name="Comite" id="syllabus.menu_comite"
+                  parent="syllabus.menu_syllabus_root" sequence="2"
+                  groups="base.group_system,syllabus.group_comite"
+        />
+
+        <!--Sidebar Asesor-->
+        <menuitem name="Asesor" id="syllabus.menu_asesor"
+                  parent="syllabus.menu_syllabus_root" sequence="2"
+                  groups="base.group_system,syllabus.group_asesor"
+        />
+
+        <!--Sidebar Profesor-->
+        <menuitem name="Profesor" id="syllabus.menu_profesor"
+                  parent="syllabus.menu_syllabus_root" sequence="2"
+                  groups="base.group_system,syllabus.group_profesor"
+        />
+
+    </data>
+</odoo>
