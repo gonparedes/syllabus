@@ -5,16 +5,10 @@ Calidad y Produccion de Software 2018
 
 Ingenieria Civil Informatica Universidad Catolica del Maule
 
-#Roles
-Administrador
+# Roles
 
-Director de Escuela
+Administrador,Director de Escuela, Profesor, Comite Y Asesor.
 
-Profesor
+# Futuras mejoras
 
-Comite
-
-Asesor
-
-#Futuras mejoras
 Gestion de evaluaciones, integrar evaluaciones dentro de las asignaciones del profesor.
