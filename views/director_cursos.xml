@@ -1,71 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-    <data>
-<!--Cursos-->
-        <!--Form view Curso-->
-        <record id="syllabus_director_curso_form_view" model="ir.ui.view">
-            <field name="name">director_curso_form</field>
-            <field name="model">syllabus.curso</field>
-            <field name="arch" type="xml">
-                <form string="Form Curso" create="0" edit="0" delete="0">
-                    <sheet>
-                        <group>
-                            <field name="codigo" string="Codigo"/>
-                            <field name="nombre" string="Nombre"/>
-                            <field name="carrera" string="Carrera"/>
-                            <field name="creditos" string="Creditos"/>
-                            <field name="horas_pre" string="Horas Presenciales"/>
-                            <field name="horas_auto" string="Horas Autonomas"/>
-                            <field name="malla" string="Malla"/>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
+    <data noupdate="0">
+<!--&lt;!&ndash;Cursos&ndash;&gt;-->
+        <!--&lt;!&ndash;Form view Curso&ndash;&gt;-->
+        <!--<record id="syllabus_director_curso_form_view" model="ir.ui.view">-->
+            <!--<field name="name">director_curso_form</field>-->
+            <!--<field name="model">syllabus.curso</field>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<form string="Form Curso" create="0" edit="0" delete="0">-->
+                    <!--<sheet>-->
+                        <!--<group>-->
+                            <!--<field name="codigo" string="Codigo"/>-->
+                            <!--<field name="curso" string="Nombre"/>-->
+                            <!--<field name="carrera_curso" string="Carrera"/>-->
+                            <!--<field name="creditos" string="Creditos"/>-->
+                            <!--<field name="horas_pre" string="Horas Presenciales"/>-->
+                            <!--<field name="horas_auto" string="Horas Autonomas"/>-->
+                            <!--<field name="malla" string="Malla"/>-->
+                        <!--</group>-->
+                    <!--</sheet>-->
+                <!--</form>-->
+            <!--</field>-->
+        <!--</record>-->
 
-        <!--Tree view Curso-->
-        <record id="syllabus_director_curso_tree_view" model="ir.ui.view">
-            <field name="name">director_curso_tree</field>
-            <field name="model">syllabus.curso</field>
-            <field name="arch" type="xml">
-                <tree string="Tree Curso" create="0" edit="0" delete="0">
-                    <field name="codigo" string="Codigo"/>
-                    <field name="nombre" string="Curso"/>
-                    <field name="carrera" string="Carrera"/>
-                </tree>
-            </field>
-        </record>
+        <!--&lt;!&ndash;Tree view Curso&ndash;&gt;-->
+        <!--<record id="syllabus_director_curso_tree_view" model="ir.ui.view">-->
+            <!--<field name="name">director_curso_tree</field>-->
+            <!--<field name="model">syllabus.curso</field>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<tree string="Tree Curso" create="0" edit="0" delete="0">-->
+                    <!--<field name="codigo" string="Codigo"/>-->
+                    <!--<field name="curso" string="Curso"/>-->
+                    <!--<field name="carrera_curso" string="Carrera"/>-->
+                <!--</tree>-->
+            <!--</field>-->
+        <!--</record>-->
 
-        <!--Ver Cursos-->
-        <record id="syllabus_director_ver_cursos_action_window" model="ir.actions.act_window">
-            <field name="name">Cursos</field>
-            <field name="res_model">syllabus.curso</field>
-            <field name="view_mode">tree,form</field>
-        </record>
+        <!--&lt;!&ndash;Ver Cursos&ndash;&gt;-->
+        <!--<record id="syllabus_director_ver_cursos_action_window" model="ir.actions.act_window">-->
+            <!--<field name="name">Cursos</field>-->
+            <!--<field name="res_model">syllabus.curso</field>-->
+            <!--<field name="view_mode">tree,form</field>-->
+            <!--&lt;!&ndash;<field name="domain">[('director_escuela','=',uid)]</field>&ndash;&gt;-->
+        <!--</record>-->
 
-        <!--Action Tree Cursos-->
-        <record id="action_syllabus_director_curso_tree" model="ir.actions.act_window.view">
-            <field name="view_mode">tree</field>
-            <field name="act_window_id" ref="syllabus_director_ver_cursos_action_window"/>
-            <field name="view_id" ref="syllabus_director_curso_tree_view"/>
-        </record>
-        <!--Action Form Cursos-->
-        <record id="action_syllabus_director_curso_form" model="ir.actions.act_window.view">
-            <field name="view_mode">form</field>
-            <field name="act_window_id" ref="syllabus_director_ver_cursos_action_window"/>
-            <field name="view_id" ref="syllabus_director_curso_form_view"/>
-        </record>
+        <!--&lt;!&ndash;Action Tree Cursos&ndash;&gt;-->
+        <!--<record id="action_syllabus_director_curso_tree" model="ir.actions.act_window.view">-->
+            <!--<field name="view_mode">tree</field>-->
+            <!--<field name="act_window_id" ref="syllabus_director_ver_cursos_action_window"/>-->
+            <!--<field name="view_id" ref="syllabus_director_curso_tree_view"/>-->
+        <!--</record>-->
+        <!--&lt;!&ndash;Action Form Cursos&ndash;&gt;-->
+        <!--<record id="action_syllabus_director_curso_form" model="ir.actions.act_window.view">-->
+            <!--<field name="view_mode">form</field>-->
+            <!--<field name="act_window_id" ref="syllabus_director_ver_cursos_action_window"/>-->
+            <!--<field name="view_id" ref="syllabus_director_curso_form_view"/>-->
+        <!--</record>-->
 
-        <!--Parent-->
-        <menuitem id="syllabus_director_cursos" name="Cursos" parent="syllabus.menu_director_escuela"
-                  action="syllabus_director_ver_cursos_action_window"
-                  groups="base.group_system,syllabus.group_director_escuela"/>
+        <!--&lt;!&ndash;Parent&ndash;&gt;-->
+        <!--<menuitem id="syllabus_director_cursos" name="Cursos" parent="syllabus.menu_director_escuela"-->
+                  <!--action="syllabus_director_ver_cursos_action_window"-->
+                  <!--groups="base.group_system,syllabus.group_director_escuela"/>-->
 
-        <!--Action Cursos-->
-        <menuitem id="syllabus_director_ver_cursos_m" name="Ver Cursos" parent="syllabus_director_cursos"
-                  action="syllabus_director_ver_cursos_action_window"
-                  groups="base.group_system,syllabus.group_director_escuela"/>
+        <!--&lt;!&ndash;Action Cursos&ndash;&gt;-->
+        <!--<menuitem id="syllabus_director_ver_cursos_m" name="Ver Cursos" parent="syllabus_director_cursos"-->
+                  <!--action="syllabus_director_ver_cursos_action_window"-->
+                  <!--groups="base.group_system,syllabus.group_director_escuela"/>-->
 
 <!--Asignar Profesores-->
         <!--Form view Profesor-->
@@ -76,12 +77,13 @@
                 <form string="Form Profesor Director">
                     <sheet>
                         <group>
-                            <field name="nombre" string="Curso"/>
-                            <field name="carrera" string="Carrera"/>
-                            <field name="Seccion" string="Seccion"/>
-                            <field name="semestre" string="Semestre"/>
-                            <field name="anio" string="Año"/>
+                            <field name="curso" string="Curso" required="1"/>
+                            <field name="carrera" string="Carrera" required="1"/>
+                            <field name="anio" string="Período" required="1"/>
+                            <field name="seccion" readonly="1" string="Seccion" required="1"/>
                             <field name="profesor" string="Profesor"/>
+                            <field name="comite" readonly="1" string="Comite"/>
+                            <field name="asesor" readonly="1" string="Asesor"/>
                         </group>
                     </sheet>
                 </form>
@@ -93,12 +95,11 @@
             <field name="model">syllabus.instancia.curso</field>
             <field name="arch" type="xml">
                 <tree string="Tree Profesor">
-                    <field name="nombre" string="Curso"/>
+                    <field name="curso" string="Curso"/>
                     <field name="carrera" string="Carrera"/>
                     <field name="profesor" string="Profesor"/>
-                    <field name="Seccion" string="Seccion"/>
-                    <field name="semestre" string="Semestre"/>
-                    <field name="anio" string="Año"/>
+                    <field name="seccion" string="Seccion"/>
+                    <field name="anio" string="Período"/>
                 </tree>
             </field>
         </record>
@@ -108,6 +109,7 @@
             <field name="name">Impartir Curso y Asignar Profesor</field>
             <field name="res_model">syllabus.instancia.curso</field>
             <field name="view_mode">tree,form</field>
+            <field name="domain">[('director_escuela','=',uid)]</field>
         </record>
         <!--Action Tree Profesor-->
         <record id="action_syllabus_director_profesor_tree" model="ir.actions.act_window.view">
@@ -122,6 +124,10 @@
             <field name="view_id" ref="syllabus_director_profesor_form_view"/>
         </record>
 
+        <!--Parent-->
+        <menuitem id="syllabus_director_cursos" name="Cursos" parent="syllabus.menu_director_escuela"
+                  action="syllabus_director_asignar_profesor_action_window"
+                  groups="base.group_system,syllabus.group_director_escuela"/>
 
         <!--Action Asignar Profesor-->
         <menuitem id="syllabus_director_asignar_profesor_m" name="Curso - Profesor" parent="syllabus_director_cursos"

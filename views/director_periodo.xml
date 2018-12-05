@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-    <data>
+    <data noupdate="0">
 <!--Periodo-->
         <!--Form view Periodo-->
         <record id="syllabus_director_periodo_form_view" model="ir.ui.view">

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-    <data>
+    <data noupdate="0">
 <!--Evaluaciones-->
         <!--Form view Evaluaciones-->
         <record id="syllabus_asesor_evaluaciones_form_view" model="ir.ui.view">
@@ -42,7 +42,7 @@
             <field name="name">Evaluaciones</field>
             <field name="res_model">syllabus.evaluacion</field>
             <field name="view_mode">tree,form</field>
-            <!--<field name="domain">[('pertenencia','=',uid)]</field>-->
+            <field name="domain">[('asesor','=',uid)]</field>
         </record>
 
         <!--Action Tree Evaluaciones-->
