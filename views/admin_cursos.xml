@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-    <data>
+    <data noupdate="0">
 <!--Cursos-->
         <!--Form view Curso-->
         <record id="syllabus_admin_curso_form_view" model="ir.ui.view">
@@ -11,9 +11,9 @@
                 <form string="Form Curso Admin" create="1" edit="1" delete="1">
                     <sheet>
                         <group>
-                            <field name="codigo" string="Codigo"/>
-                            <field name="nombre" string="Nombre"/>
-                            <field name="carrera" string="Carrera"/>
+                            <field name="codigo" string="Codigo" required="1"/>
+                            <field name="curso" string="Nombre" required="1"/>
+                            <field name="carrera_curso" string="Carrera" required="1"/>
                             <field name="creditos" string="Creditos"/>
                             <field name="horas_pre" string="Horas Presenciales"/>
                             <field name="horas_auto" string="Horas Autonomas"/>
@@ -31,8 +31,8 @@
             <field name="arch" type="xml">
                 <tree string="Tree Curso Admin" create="1" edit="1" delete="1">
                     <field name="codigo" string="Codigo"/>
-                    <field name="nombre" string="Curso"/>
-                    <field name="carrera" string="Carrera"/>
+                    <field name="curso" string="Curso"/>
+                    <field name="carrera_curso" string="Carrera"/>
                 </tree>
             </field>
         </record>
@@ -76,12 +76,14 @@
                 <form string="Form Profesor Admin">
                     <sheet>
                         <group>
-                            <field name="nombre" string="Curso"/>
-                            <field name="carrera" string="Carrera"/>
-                            <field name="Seccion" string="Seccion"/>
-                            <field name="semestre" string="Semestre"/>
-                            <field name="anio" string="Año"/>
+                            <field name="curso" string="Curso" required="1"/>
+                            <field name="carrera" string="Carrera" required="1"/>
+                            <field name="seccion" string="Seccion" required="1"/>
+                            <field name="anio" string="Período" required="1"/>
                             <field name="profesor" string="Profesor"/>
+                            <field name="comite" readonly="1" string="Comite"/>
+                            <field name="asesor" readonly="1" string="Asesor"/>
+                            <field name="director_escuela" readonly="1" string="Director de Escuela"/>
                         </group>
                     </sheet>
                 </form>
@@ -93,12 +95,11 @@
             <field name="model">syllabus.instancia.curso</field>
             <field name="arch" type="xml">
                 <tree string="Tree Profesor Admin">
-                    <field name="nombre" string="Curso"/>
+                    <field name="curso" string="Curso"/>
                     <field name="carrera" string="Carrera"/>
                     <field name="profesor" string="Profesor"/>
-                    <field name="Seccion" string="Seccion"/>
-                    <field name="semestre" string="Semestre"/>
-                    <field name="anio" string="Año"/>
+                    <field name="seccion" string="Seccion"/>
+                    <field name="anio" string="Período"/>
                 </tree>
             </field>
         </record>
@@ -121,7 +122,6 @@
             <field name="act_window_id" ref="syllabus_admin_asignar_profesor_action_window"/>
             <field name="view_id" ref="syllabus_admin_profesor_form_view"/>
         </record>
-
 
         <!--Action Asignar Profesor-->
         <menuitem id="syllabus_admin_asignar_profesor_m" name="Curso - Profesor" parent="syllabus_admin_cursos"

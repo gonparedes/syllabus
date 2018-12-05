@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-    <data>
+    <data noupdate="0">
 <!--Syllabus-->
         <!--Form view Syllabus-->
         <record id="syllabus_admin_syllabus_form_view" model="ir.ui.view">
@@ -11,10 +11,10 @@
                 <form string="Form Syllabus Admin">
                     <sheet>
                         <group>
-                            <field name="nombre" readonly="1" string="Curso"/>
+                            <field name="curso" readonly="1" string="Curso"/>
                             <field name="carrera" readonly="1" string="Carrera"/>
                             <field name="syllabus" string="Syllabus"/>
-                            <field name="estado_syllabus" readonly="1" string="Estado del Syllabus"/>
+                            <field name="estado_syllabus" string="Estado del Syllabus"/>
                             <field name="observacion_syllabus" string="Observación del Syllabus"/>
                         </group>
                     </sheet>
@@ -27,8 +27,8 @@
             <field name="name">admin_syllabus_tree</field>
             <field name="model">syllabus.instancia.curso</field>
             <field name="arch" type="xml">
-                <tree string="Tree Syllabus Admin">
-                    <field name="nombre" string="Nombre de Curso"/>
+                <tree string="Tree Syllabus Admin" create="0" edit="0" delete="0">
+                    <field name="curso" string="Nombre de Curso"/>
                     <field name="carrera" string="Carrera"/>
                     <field name="estado_syllabus" string="Estado del Syllabus"/>
                 </tree>
@@ -116,9 +116,6 @@
         <menuitem id="syllabus_admin_ver_estrategias_m" name="Estrategias" parent="syllabus_admin_syllabuss"
                   action="syllabus_admin_ver_estrategias_action_window"
                   groups="base.group_system,syllabus.group_admin"/>
-
-
-
 
     </data>
 </odoo>

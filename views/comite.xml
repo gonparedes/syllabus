@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-    <data>
+    <data noupdate="0">
 <!--Syllabus-->
         <!--Form view Syllabus-->
         <record id="syllabus_comite_syllabus_form_view" model="ir.ui.view">
@@ -11,8 +11,9 @@
                 <form string="Form Syllabus" create="0" edit="1" delete="0">
                     <sheet>
                         <group>
-                            <field name="nombre" readonly="1" string="Curso"/>
+                            <field name="curso" readonly="1" string="Curso"/>
                             <field name="carrera" readonly="1" string="Carrera"/>
+                            <field name="anio" readonly="1" string="Período"/>
                             <field name="syllabus" readonly="1" string="Syllabus"/>
                             <field name="estado_syllabus" readonly="1" string="Estado"/>
                             <field name="observacion_syllabus" string="Observación"/>
@@ -33,10 +34,11 @@
             <field name="model">syllabus.instancia.curso</field>
             <field name="arch" type="xml">
                 <tree string="Tree Syllabus" create="0" edit="0" delete="0">
-                    <field name="nombre" string="Nombre del Curso"/>
+                    <field name="curso" string="Nombre del Curso"/>
                     <field name="carrera" string="Carrera"/>
+                    <field name="anio" string="Período"/>
                     <field name="estado_syllabus" string="Estado del Syllabus"/>
-                    <!--<field name="pertenencia" string="Comite"/>-->
+                    <field name="comite" string="Comite"/>
                 </tree>
             </field>
         </record>
@@ -46,7 +48,7 @@
             <field name="name">Syllabus</field>
             <field name="res_model">syllabus.instancia.curso</field>
             <field name="view_mode">tree,form</field>
-            <!--<field name="domain">[('pertenencia','=',uid)]</field>-->
+            <field name="domain">[('comite', '=', uid)]</field>
         </record>
 
         <!--Action Tree Syllabus-->

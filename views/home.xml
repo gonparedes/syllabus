@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-    <data>
+    <data noupdate="0">
         <!--Tab-->
         <menuitem name="Syllabus" id="syllabus.menu_syllabus_root"
                   groups="base.group_system,syllabus.group_admin,syllabus.group_asesor,syllabus.group_comite,syllabus.group_director_escuela,syllabus.group_profesor"

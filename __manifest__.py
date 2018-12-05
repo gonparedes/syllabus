@@ -32,12 +32,12 @@
         #Seguridad
         'security/ir.model.access.csv',
         #Datos
+        'data/syllabus.estrategia.csv',
         'data/syllabus.periodo.csv',
         'data/syllabus.facultad.csv',
         'data/syllabus.carrera.csv',
         'data/syllabus.curso.csv',
         'data/syllabus.instancia.curso.csv',
-        'data/syllabus.estrategia.csv',
         #Vistas
         'views/home.xml',
         'views/admin_usuarios.xml',
@@ -52,7 +52,8 @@
         'views/director_syllabus.xml',
         'views/profesor.xml',
         'views/comite.xml',
-        'views/asesor.xml',
+        #No se cargara asesor por campos dentro de vistas de crecion de evaluacion que no fueron aplicados a un dominio
+        #'views/asesor.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode

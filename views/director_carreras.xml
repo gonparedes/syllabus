@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-    <data>
+    <data noupdate="0">
 <!--Carreras-->
         <!--Form view Carreras-->
         <record id="syllabus_director_carrera_form_view" model="ir.ui.view">
@@ -13,7 +13,7 @@
                         <group>
                             <field name="codigo" readonly="1" string="Codigo Carrera"/>
                             <field name="creditos"  readonly="1" string="Creditos Totales"/>
-                            <field name="nombre" readonly="1" string="Carrera"/>
+                            <field name="carrera" readonly="1" string="Carrera"/>
                             <field name="facultad" readonly="1" string="Facultad"/>
                         </group>
                     </sheet>
@@ -28,7 +28,7 @@
             <field name="arch" type="xml">
                 <tree string="Tree Carrera Director" create="0" edit="0" delete="0">
                     <field name="codigo" string="Codigo Carrera"/>
-                    <field name="nombre" string="Carrera"/>
+                    <field name="carrera" string="Carrera"/>
                     <field name="creditos" string="Total de Créditos"/>
                     <field name="facultad" string="Facultad"/>
                 </tree>
@@ -40,6 +40,7 @@
             <field name="name">Carreras</field>
             <field name="res_model">syllabus.carrera</field>
             <field name="view_mode">tree,form</field>
+            <field name="domain">[('director_escuela','=',uid)]</field>
         </record>
         <!--Action Tree Carreras-->
         <record id="action_syllabus_director_carrera_tree" model="ir.actions.act_window.view">
@@ -74,7 +75,7 @@
                 <form string="Form Asesor Director" create="0" edit="1" delete="0">
                     <sheet>
                         <group>
-                            <field name="nombre" readonly="1" string="Carrera"/>
+                            <field name="carrera" readonly="1" string="Carrera"/>
                             <field name="asesor" string="Asesor"/>
                         </group>
                     </sheet>
@@ -88,7 +89,7 @@
             <field name="model">syllabus.carrera</field>
             <field name="arch" type="xml">
                 <tree string="Tree Asesor Director" create="0" edit="0" delete="0">
-                    <field name="nombre" readonly="1" string="Carrera"/>
+                    <field name="carrera" readonly="1" string="Carrera"/>
                     <field name="asesor" string="Asesor"/>
                 </tree>
             </field>
@@ -99,6 +100,7 @@
             <field name="name">Asignar Asesor</field>
             <field name="res_model">syllabus.carrera</field>
             <field name="view_mode">tree,form</field>
+            <field name="domain">[('director_escuela','=',uid)]</field>
         </record>
 
         <!--Action Tree Asesor-->
@@ -128,7 +130,7 @@
                 <form string="Form Comite Director" create="0" edit="1" delete="0">
                     <sheet>
                         <group>
-                            <field name="nombre" readonly="1" string="Carrera"/>
+                            <field name="carrera" readonly="1" string="Carrera"/>
                             <field name="comite" string="Comite"/>
                         </group>
                     </sheet>
@@ -142,7 +144,7 @@
             <field name="model">syllabus.carrera</field>
             <field name="arch" type="xml">
                 <tree string="Tree Comite Director" create="0" edit="0" delete="0">
-                    <field name="nombre" readonly="1" string="Carrera"/>
+                    <field name="carrera" readonly="1" string="Carrera"/>
                     <field name="comite" string="Comite"/>
                 </tree>
             </field>
@@ -153,6 +155,7 @@
             <field name="name">Asignar Miembro del Comité</field>
             <field name="res_model">syllabus.carrera</field>
             <field name="view_mode">tree,form</field>
+            <field name="domain">[('director_escuela','=',uid)]</field>
         </record>
 
         <!--Action Tree Comite-->

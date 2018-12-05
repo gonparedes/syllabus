@@ -41,3 +41,6 @@ estrategia_asesor,estrategia asesor,model_syllabus_estrategia,syllabus.group_ase
 estrategia_comite,estrategia comite,model_syllabus_estrategia,syllabus.group_comite,0,0,0,0
 estrategia_director_escuela,estrategia director de escuela,model_syllabus_estrategia,syllabus.group_director_escuela,1,0,0,0
 estrategia_profesor,estrategia profesor,model_syllabus_estrategia,syllabus.group_profesor,0,0,0,0
+
+usuario_admin,usuarios admin,base.model_res_users,syllabus.group_admin,1,1,0,0
+grupo_admin,grupos admin,base.model_res_groups,syllabus.group_admin,1,1,0,0

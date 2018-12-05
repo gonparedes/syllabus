@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-    <data>
+    <data noupdate="0">
 <!--Syllabus-->
         <!--Form view Syllabus-->
         <record id="syllabus_director_syllabus_form_view" model="ir.ui.view">
@@ -11,7 +11,9 @@
                 <form string="Form Syllabus Director" create="0" edit="0" delete="0">
                     <sheet>
                         <group>
-                            <field name="nombre" readonly="1" string="Curso"/>
+                            <field name="curso" readonly="1" string="Curso"/>
+                            <field name="seccion" readonly="1" string="Carrera"/>
+                            <field name="anio" readonly="1" string="Período"/>
                             <field name="carrera" readonly="1" string="Carrera"/>
                             <field name="syllabus" readonly="1" string="Syllabus"/>
                             <field name="estado_syllabus" readonly="1" string="Estado del Syllabus"/>
@@ -27,7 +29,9 @@
             <field name="model">syllabus.instancia.curso</field>
             <field name="arch" type="xml">
                 <tree string="Tree Syllabus Director" create="0" edit="0" delete="0">
-                    <field name="nombre" string="Nombre de Curso"/>
+                    <field name="curso" string="Nombre de Curso"/>
+                    <field name="seccion" string="Carrera"/>
+                    <field name="anio" readonly="1" string="Período"/>
                     <field name="carrera" string="Carrera"/>
                     <field name="estado_syllabus" string="Estado del Syllabus"/>
                 </tree>
@@ -39,6 +43,7 @@
             <field name="name">Syllabus</field>
             <field name="res_model">syllabus.instancia.curso</field>
             <field name="view_mode">tree,form</field>
+            <field name="domain">[('director_escuela','=',uid)]</field>
         </record>
         <!--Action Tree Syllabus-->
         <record id="action_syllabus_director_syllabus_tree" model="ir.actions.act_window.view">
@@ -71,8 +76,8 @@
                 <form string="Form Estrategias Director">
                     <sheet>
                         <group>
-                            <field name="codigo" string="Codigo"/>
-                            <field name="nombre" string="Estrategia de Aprendizaje"/>
+                            <field name="codigo" readonly="1" string="Codigo"/>
+                            <field name="nombre" readonly="1" string="Estrategia de Aprendizaje"/>
                         </group>
                     </sheet>
                 </form>

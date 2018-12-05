@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-    <data>
+    <data noupdate="0">
 <!--Carreras-->
         <!--Form view Carreras-->
         <record id="syllabus_admin_carrera_form_view" model="ir.ui.view">
@@ -11,10 +11,10 @@
                 <form string="Form Carrera" create="1" edit="1" delete="1">
                     <sheet>
                         <group>
-                            <field name="codigo" string="Codigo Carrera"/>
+                            <field name="codigo" string="Codigo Carrera" required="1"/>
                             <field name="creditos" string="Creditos Totales"/>
-                            <field name="nombre" string="Carrera"/>
-                            <field name="facultad" string="Facultad"/>
+                            <field name="carrera" string="Carrera" required="1"/>
+                            <field name="facultad" string="Facultad" required="1"/>
                         </group>
                     </sheet>
                 </form>
@@ -28,7 +28,7 @@
             <field name="arch" type="xml">
                 <tree string="Tree Carrera" create="1" edit="1" delete="1">
                     <field name="codigo" string="Codigo Carrera"/>
-                    <field name="nombre" string="Carrera"/>
+                    <field name="carrera" string="Carrera"/>
                     <field name="creditos" string="Total de Créditos"/>
                     <field name="facultad" string="Facultad"/>
                 </tree>
@@ -65,7 +65,6 @@
                   action="syllabus_admin_ver_carreras_action_window"
                   groups="base.group_system,syllabus.group_admin"/>
 
-<!--dfjkghfkughdfkjghdjkfghd-->
 <!--Director de Escuela-->
         <!--Form view Director de Escuela-->
         <record id="syllabus_admin_director_form_view" model="ir.ui.view">
@@ -75,7 +74,7 @@
                 <form string="Form Director de Escuela" create="0" edit="1" delete="0">
                     <sheet>
                         <group>
-                            <field name="nombre" readonly="1" string="Carrera"/>
+                            <field name="carrera" readonly="1" string="Carrera"/>
                             <field name="director_escuela" string="Director de Escuela"/>
                         </group>
                     </sheet>
@@ -89,7 +88,7 @@
             <field name="model">syllabus.carrera</field>
             <field name="arch" type="xml">
                 <tree string="Tree Director de Escuela" create="0" edit="0" delete="0">
-                    <field name="nombre" readonly="1" string="Carrera"/>
+                    <field name="carrera" readonly="1" string="Carrera"/>
                     <field name="director_escuela" string="Director de Escuela"/>
                 </tree>
             </field>
@@ -120,21 +119,6 @@
                   action="syllabus_admin_asignar_director_action_window"
                   groups="base.group_system,syllabus.group_admin"/>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--fadfasfsdfsdfsdfsdf-->
-
 <!--Asesor-->
         <!--Form view Asesor-->
         <record id="syllabus_admin_asesor_form_view" model="ir.ui.view">
@@ -144,7 +128,7 @@
                 <form string="Form Asesor" create="0" edit="1" delete="0">
                     <sheet>
                         <group>
-                            <field name="nombre" readonly="1" string="Carrera"/>
+                            <field name="carrera" readonly="1" string="Carrera"/>
                             <field name="asesor" string="Asesor"/>
                         </group>
                     </sheet>
@@ -158,7 +142,7 @@
             <field name="model">syllabus.carrera</field>
             <field name="arch" type="xml">
                 <tree string="Tree Asesor" create="0" edit="0" delete="0">
-                    <field name="nombre" readonly="1" string="Carrera"/>
+                    <field name="carrera" readonly="1" string="Carrera"/>
                     <field name="asesor" string="Asesor"/>
                 </tree>
             </field>
@@ -198,7 +182,7 @@
                 <form string="Form Comite" create="0" edit="1" delete="0">
                     <sheet>
                         <group>
-                            <field name="nombre" readonly="1" string="Carrera"/>
+                            <field name="carrera" readonly="1" string="Carrera"/>
                             <field name="comite" string="Comite"/>
                         </group>
                     </sheet>
@@ -212,7 +196,7 @@
             <field name="model">syllabus.carrera</field>
             <field name="arch" type="xml">
                 <tree string="Tree Comite" create="0" edit="0" delete="0">
-                    <field name="nombre" readonly="1" string="Carrera"/>
+                    <field name="carrera" readonly="1" string="Carrera"/>
                     <field name="comite" string="Comite"/>
                 </tree>
             </field>
@@ -242,7 +226,6 @@
         <menuitem id="syllabus_admin_asignar_comite_m" name="Asignar Comité" parent="syllabus_admin_carreras"
                   action="syllabus_admin_asignar_comite_action_window"
                   groups="base.group_system,syllabus.group_admin"/>
-
 
     </data>
 </odoo>
